@@ -105,7 +105,8 @@ header.top.scrolled{box-shadow:0 8px 30px -12px rgba(0,0,0,.4);padding:12px 0}
 .hero .eyebrow{color:var(--gold)}
 .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
 .doc-chip{display:flex;align-items:center;gap:16px;margin-top:52px;padding-top:28px;border-top:1px solid rgba(255,255,255,.14);max-width:520px}
-.doc-chip img{width:58px;height:58px;border-radius:50%;object-fit:cover;object-position:42% 22%;border:2px solid var(--gold)}
+.doc-chip .av{width:58px;height:58px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);flex:none}
+.doc-chip .av img{width:100%;height:100%;object-fit:cover;object-position:56% 36%;transform:scale(2.4);transform-origin:56% 36%}
 .doc-chip strong{display:block;font-weight:500;font-size:.95rem}
 .doc-chip span{font-size:.78rem;color:rgba(255,255,255,.6);letter-spacing:.04em}
 .hero-art{position:relative;justify-self:center;width:min(440px,100%)}
@@ -133,7 +134,7 @@ header.top.scrolled{box-shadow:0 8px 30px -12px rgba(0,0,0,.4);padding:12px 0}
 .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,100px);align-items:center}
 .portrait{position:relative;max-width:460px}
 .portrait .frame{border-radius:999px 999px 28px 28px;overflow:hidden;aspect-ratio:4/5.2;box-shadow:var(--shadow)}
-.portrait img{width:100%;height:100%;object-fit:cover;object-position:40% 18%;transition:transform 1.2s}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform 1.2s}
 .portrait:hover img{transform:scale(1.05)}
 .portrait::before{content:"";position:absolute;inset:26px -26px -26px 26px;border:1px solid var(--gold);border-radius:999px 999px 28px 28px;z-index:-1}
 .portrait .tag{position:absolute;right:-16px;bottom:44px;background:var(--petrol);color:#fff;border-radius:16px;padding:14px 20px;font-size:.78rem;letter-spacing:.04em;box-shadow:var(--shadow)}
@@ -146,6 +147,24 @@ header.top.scrolled{box-shadow:0 8px 30px -12px rgba(0,0,0,.4);padding:12px 0}
 .pillar svg{width:30px;height:30px;color:var(--gold-d);margin-bottom:12px}
 .pillar b{display:block;font-family:var(--serif);font-weight:500;color:var(--petrol);font-size:1.05rem;line-height:1.25}
 .pillar span{font-size:.78rem;color:var(--muted);line-height:1.5;display:block;margin-top:6px}
+
+/* ortodontia */
+.ortho{background:var(--sand-2)}
+.ortho-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,7vw,100px);align-items:center}
+.ortho h2{font-size:clamp(2rem,4vw,3.1rem);margin:16px 0 22px}
+.ortho p{color:var(--muted);margin-bottom:16px}
+.ortho ul{list-style:none;padding:0;margin:26px 0 34px;display:grid;gap:14px}
+.ortho li{display:flex;gap:14px;align-items:flex-start;font-size:.92rem}
+.ortho li svg{width:26px;height:26px;color:var(--gold-d);flex:none;margin-top:2px}
+.ortho li b{display:block;font-family:var(--serif);font-weight:500;color:var(--petrol);font-size:1.08rem}
+.ortho li span{color:var(--muted);font-size:.84rem}
+.ortho-pic{position:relative;max-width:480px;justify-self:center;width:100%}
+.ortho-pic .frame{border-radius:200px 28px 200px 28px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--shadow)}
+.ortho-pic img{width:100%;height:100%;object-fit:cover;object-position:60% 45%;transition:transform 1.2s}
+.ortho-pic:hover img{transform:scale(1.06)}
+.ortho-pic::before{content:"";position:absolute;inset:-22px 22px 22px -22px;border:1px solid var(--gold);border-radius:200px 28px 200px 28px;z-index:-1}
+.ortho-pic .tag{position:absolute;left:-18px;bottom:48px;background:var(--petrol);color:#fff;border-radius:16px;padding:14px 20px;font-size:.78rem;box-shadow:var(--shadow)}
+.ortho-pic .tag b{display:block;font-family:var(--serif);font-weight:500;font-size:1.05rem}
 
 /* services */
 .services{background:var(--paper)}
@@ -299,6 +318,7 @@ footer ul a:hover{color:var(--gold)}
 .js .reveal.in{opacity:1;transform:none}
 
 @media (max-width:1060px){
+  .ortho-pic .tag{left:-8px}
   .grid-s{grid-template-columns:repeat(2,1fr)}
   .float-card.a{left:-10px}.float-card.b{right:-10px}
 }
@@ -309,7 +329,7 @@ footer ul a:hover{color:var(--gold)}
   .menu a.l{font-size:1.05rem}
   .burger{position:relative;z-index:2}
   .hero{padding:120px 0 80px;min-height:auto}
-  .hero-grid,.about,.quiz-box,.book-grid,.faq-grid,.loc-grid,.foot{grid-template-columns:minmax(0,1fr)}
+  .hero-grid,.about,.ortho-grid,.quiz-box,.book-grid,.faq-grid,.loc-grid,.foot{grid-template-columns:minmax(0,1fr)}
   .hero-art{order:-1;width:min(300px,70%);margin-bottom:10px}
   .float-card{display:none}
   .scroll-hint{display:none}
@@ -398,7 +418,7 @@ footer ul a:hover{color:var(--gold)}
         <a class="btn btn-line" href="https://wa.me/5591981154404?text=Ol%C3%A1%2C%20vim%20diretamente%20do%20seu%20website%20e%20gostaria%20de%20marcar%20uma%20consulta" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Falar no WhatsApp</a>
       </div>
       <div class="doc-chip">
-        <img src="img/dentista.jpg" alt="Dr. Fellipe Diogo Ortega">
+        <span class="av"><img src="img/atendimento.jpg" alt="Dr. Fellipe Diogo Ortega"></span>
         <div><strong>Dr. Fellipe Diogo Ortega</strong><span>Cirurgião-dentista · Especialista em Ortodontia</span></div>
       </div>
     </div>
@@ -421,7 +441,7 @@ footer ul a:hover{color:var(--gold)}
 <section class="section" id="sobre">
   <div class="wrap about">
     <div class="portrait reveal">
-      <div class="frame"><img src="img/dentista.jpg" alt="Dr. Fellipe Diogo Ortega, cirurgião-dentista"></div>
+      <div class="frame"><img src="img/atendimento.jpg" alt="Dr. Fellipe Diogo Ortega atendendo um paciente"></div>
       <div class="tag"><b>Dr. Fellipe Ortega</b>Cirurgião-dentista</div>
     </div>
     <div class="reveal" style="--d:.15s">
@@ -434,6 +454,26 @@ footer ul a:hover{color:var(--gold)}
         <div class="pillar"><svg><use href="#i-scalpel"/></svg><b>Cirurgia Oral Menor</b><span>Procedimentos como extração de siso</span></div>
         <div class="pillar"><svg><use href="#i-heart"/></svg><b>Saúde Pública</b><span>Experiência no cuidado à comunidade</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORTODONTIA -->
+<section class="section ortho" id="ortodontia">
+  <div class="wrap ortho-grid">
+    <div class="reveal">
+      <span class="eyebrow">Ortodontia em foco</span>
+      <h2>Dentes alinhados, <em style="font-style:italic;color:var(--gold-d)">passo a passo</em></h2>
+      <p>Dentes tortos ou mal posicionados? A Ortodontia é a especialidade do Dr. Fellipe e o coração do consultório. Cada caso é avaliado individualmente para indicar o caminho mais adequado.</p>
+      <ul>
+        <li><svg><use href="#i-braces"/></svg><div><b>Aparelhos fixos</b><span>Metálicos e estéticos, para quem quer corrigir o posicionamento dos dentes.</span></div></li>
+        <li><svg><use href="#i-aligner"/></svg><div><b>Alinhador invisível SouSmile</b><span>Plaquinhas removíveis para alinhar os dentes sem aparelho fixo.</span></div></li>
+      </ul>
+      <button type="button" class="btn btn-dark" onclick="openBooking('Aparelho Dentário Fixo')"><svg><use href="#i-cal-add"/></svg>Agendar avaliação ortodôntica</button>
+    </div>
+    <div class="ortho-pic reveal" style="--d:.15s">
+      <div class="frame"><img src="img/aparelho.jpg" alt="Paciente com aparelho ortodôntico fixo" loading="lazy"></div>
+      <div class="tag"><b>Aparelho fixo</b>Ortodontia com acompanhamento</div>
     </div>
   </div>
 </section>
