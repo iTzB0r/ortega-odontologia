@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ortega Odontologia | Dr. Fellipe Ortega — Ortodontia em Benevides, PA</title>
 <meta name="description" content="Ortega Odontologia, em Benevides–PA. Dr. Fellipe Diogo Ortega, cirurgião-dentista especialista em Ortodontia. Aparelhos, alinhadores invisíveis, canal, clareamento e mais. Agende sua consulta.">
 <meta name="theme-color" content="#14303b">
@@ -13,7 +13,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2314303b'/%3E%3Cpath d='M20 14c-5 0-9 4-9 9.5 0 4.500 1.800 7.500 3.200 11.500 1.400 4 1.300 9 2.700 14 .7 2.400 3.600 2.900 4.900.5 1.800-3.400 2-9 7.200-9s5.400 5.600 7.200 9c1.300 2.400 4.200 1.900 4.900-.5 1.400-5 1.300-10 2.700-14C50.200 31 52 28 52 23.500 52 18 48 14 43 14c-4 0-5.600 2-11 2s-8-2-12-2z' fill='none' stroke='%23d9b48f' stroke-width='2.500' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Dentist","name":"Ortega Odontologia","description":"Ortodontia e prevenção em Benevides–PA.","telephone":"+5591981154404","email":"fellipe_odonto@hotmail.com","address":{"@type":"PostalAddress","streetAddress":"Av. Professor José Gomes Teles, 455A","addressLocality":"Benevides","addressRegion":"PA","addressCountry":"BR"},"geo":{"@type":"GeoCoordinates","latitude":-1.3552316,"longitude":-48.2540081},"sameAs":["https://www.instagram.com/benevides.odontologia","https://www.facebook.com/share/16RtJuk8UJ/"]}
 </script>
@@ -39,7 +39,10 @@
   --label:'Josefin Sans',sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:clip}
+html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:clip;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body.nav-open{overflow:hidden}
+.wizard{scroll-margin-top:84px}
+.swipe,.map-link{display:none}
 body{margin:0;font-family:var(--sans);font-weight:400;color:var(--text);background:var(--sand);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -304,7 +307,7 @@ footer ul a:hover{color:var(--gold)}
 .todo{background:rgba(200,162,124,.18);color:var(--gold);padding:1px 8px;border-radius:6px}
 
 /* floating whatsapp */
-.wa-float{position:fixed;right:22px;bottom:22px;z-index:180;display:flex;align-items:center;gap:12px}
+.wa-float{position:fixed;right:calc(22px + env(safe-area-inset-right));bottom:calc(22px + env(safe-area-inset-bottom));z-index:180;display:flex;align-items:center;gap:12px}
 .wa-float .tip{background:var(--paper);color:var(--petrol);padding:10px 16px;border-radius:999px;font-size:.8rem;font-weight:500;box-shadow:var(--shadow);opacity:0;transform:translateX(10px);transition:.35s;pointer-events:none;white-space:nowrap}
 .wa-float:hover .tip,.wa-float.show-tip .tip{opacity:1;transform:none}
 .wa-float .bubble{width:62px;height:62px;border-radius:50%;background:var(--wa);display:grid;place-items:center;color:#fff;box-shadow:0 14px 34px -8px rgba(37,211,102,.7);position:relative;transition:transform .3s}
@@ -350,6 +353,82 @@ footer ul a:hover{color:var(--gold)}
   .wa-float{right:16px;bottom:16px}
   .wa-float .bubble{width:58px;height:58px}
   .final-actions .btn{width:100%;justify-content:center}
+}
+@media (hover:none){
+  .card:hover{transform:none;box-shadow:none}
+  .card:hover::before{opacity:0}
+  .card:hover h3{color:var(--petrol)}
+  .card:hover p{color:var(--muted)}
+  .card:hover .ico{background:var(--paper);color:var(--gold-d)}
+  .card:hover .go{color:var(--gold-d)}
+  .card:hover .go::after{transform:none}
+  .card:hover .num{color:rgba(20,48,59,.25)}
+  .card:active{transform:scale(.98)}
+  .pillar:hover,.btn:hover{transform:none}
+  .portrait:hover img,.ortho-pic:hover img{transform:none}
+}
+@media (max-width:900px){
+  .wizard{order:-1}
+  .menu a.l{padding:12px 0}
+  .map-link{display:flex;position:absolute;inset:0;z-index:2;align-items:flex-end;justify-content:center;padding:14px;font-size:.76rem;letter-spacing:.06em;color:#fff;background:linear-gradient(transparent 70%,rgba(14,33,41,.55))}
+  .map-link span{background:rgba(20,48,59,.85);padding:8px 16px;border-radius:999px}
+}
+@media (max-width:620px){
+  .section{padding:56px 0}
+  .sec-head{margin-bottom:30px}
+  .sec-head h2{margin:12px 0 14px}
+  .eyebrow{font-size:.66rem;letter-spacing:.22em;gap:10px}
+  .eyebrow::before{width:22px}
+  header.top{padding:14px 0}
+  .logo svg{width:34px;height:34px}
+  .logo b{font-size:1.05rem}
+  .hero{padding:92px 0 52px}
+  .hero-grid{gap:34px}
+  .hero-art{width:min(220px,60%);margin:0 auto 4px}
+  .arch{aspect-ratio:3/3.7}
+  .ring{inset:-11px}
+  .hero h1{font-size:2.3rem;margin:14px 0 16px}
+  .hero p.lead{font-size:.96rem}
+  .cta-row{margin-top:24px;gap:10px}
+  .btn{padding:15px 22px}
+  .doc-chip{margin-top:28px;padding-top:18px}
+  .marquee{padding:12px 0}
+  .marquee div{font-size:1.05rem}
+  .about{gap:34px}
+  .portrait{max-width:290px}
+  .about h2,.ortho h2,.book-info h2,.quiz h2{font-size:1.9rem}
+  .pillars{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:26px}
+  .pillar{padding:16px 8px;text-align:center}
+  .pillar svg{margin:0 auto 8px;width:26px;height:26px}
+  .pillar b{font-size:.86rem}
+  .pillar span{display:none}
+  .ortho-grid{gap:34px}
+  .ortho-pic{max-width:320px}
+  .ortho ul{margin:20px 0 26px}
+  .grid-s{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -16px;padding:6px 16px 20px;scrollbar-width:none;overscroll-behavior-x:contain}
+  .grid-s::-webkit-scrollbar{display:none}
+  .card{flex:0 0 80%;scroll-snap-align:center;min-height:260px;padding:28px 22px 24px}
+  .swipe{display:block;text-align:center;font-family:var(--label);letter-spacing:.2em;font-size:.68rem;text-transform:uppercase;color:var(--gold-d);margin-top:-4px}
+  .opts{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .opt{flex-direction:column;text-align:center;gap:6px;padding:14px 10px;font-size:.8rem;justify-content:center}
+  .result{padding:20px}
+  .steps-list{display:none}
+  .book-info>p{margin-bottom:20px}
+  .book-grid{gap:34px}
+  .w-head{padding-top:20px;padding-bottom:18px}
+  .chip{min-height:44px;display:inline-flex;align-items:center}
+  .cal{gap:4px}
+  .cal-head button{width:44px;height:44px}
+  .field input{padding:15px 16px}
+  .w-foot .btn{padding:14px 22px}
+  summary{font-size:1.04rem;padding:16px 34px 16px 0}
+  details p{padding-right:10px;font-size:.88rem}
+  .loc-card{padding:28px 22px;border-radius:24px}
+  .map{min-height:260px;border-radius:24px}
+  footer{padding:48px 0 calc(96px + env(safe-area-inset-bottom))}
+  .foot{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+  .foot>div:first-child{grid-column:1/-1}
+  .legal{flex-direction:column}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -418,13 +497,13 @@ footer ul a:hover{color:var(--gold)}
         <a class="btn btn-line" href="https://wa.me/5591981154404?text=Ol%C3%A1%2C%20vim%20diretamente%20do%20seu%20website%20e%20gostaria%20de%20marcar%20uma%20consulta" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Falar no WhatsApp</a>
       </div>
       <div class="doc-chip">
-        <span class="av"><img src="img/atendimento.jpg" alt="Dr. Fellipe Diogo Ortega"></span>
+        <span class="av"><img src="img/atendimento-720.jpg" width="720" height="960" alt="Dr. Fellipe Diogo Ortega"></span>
         <div><strong>Dr. Fellipe Diogo Ortega</strong><span>Cirurgião-dentista · Especialista em Ortodontia</span></div>
       </div>
     </div>
     <div class="hero-art reveal">
       <div class="ring"></div>
-      <div class="arch"><img src="img/hero.jpg" alt="Identidade Ortega Odontologia — Estética e Prevenção" id="heroImg"></div>
+      <div class="arch"><img src="img/hero-1200.jpg" srcset="img/hero-800.jpg 800w, img/hero-1200.jpg 1200w, img/hero.jpg 2000w" sizes="(max-width:900px) 460px, 1000px" width="2000" height="1333" fetchpriority="high" decoding="async" alt="Identidade Ortega Odontologia — Estética e Prevenção" id="heroImg"></div>
       <div class="float-card a"><svg><use href="#i-heart"/></svg><div><b>Atendimento humanizado</b>Do primeiro contato ao sorriso final</div></div>
       <div class="float-card b"><svg><use href="#i-shield"/></svg><div><b>Prevenção em foco</b>Cuidar hoje, evitar amanhã</div></div>
     </div>
@@ -441,7 +520,7 @@ footer ul a:hover{color:var(--gold)}
 <section class="section" id="sobre">
   <div class="wrap about">
     <div class="portrait reveal">
-      <div class="frame"><img src="img/atendimento.jpg" alt="Dr. Fellipe Diogo Ortega atendendo um paciente"></div>
+      <div class="frame"><img src="img/atendimento-720.jpg" srcset="img/atendimento-720.jpg 720w, img/atendimento.jpg 1440w" sizes="(max-width:900px) 300px, 460px" width="1440" height="1920" loading="lazy" decoding="async" alt="Dr. Fellipe Diogo Ortega atendendo um paciente"></div>
       <div class="tag"><b>Dr. Fellipe Ortega</b>Cirurgião-dentista</div>
     </div>
     <div class="reveal" style="--d:.15s">
@@ -472,7 +551,7 @@ footer ul a:hover{color:var(--gold)}
       <button type="button" class="btn btn-dark" onclick="openBooking('Aparelho Dentário Fixo')"><svg><use href="#i-cal-add"/></svg>Agendar avaliação ortodôntica</button>
     </div>
     <div class="ortho-pic reveal" style="--d:.15s">
-      <div class="frame"><img src="img/aparelho.jpg" alt="Paciente com aparelho ortodôntico fixo" loading="lazy"></div>
+      <div class="frame"><img src="img/aparelho-720.jpg" srcset="img/aparelho-720.jpg 720w, img/aparelho.jpg 1440w" sizes="(max-width:900px) 340px, 480px" width="1440" height="1920" loading="lazy" decoding="async" alt="Paciente com aparelho ortodôntico fixo"></div>
       <div class="tag"><b>Aparelho fixo</b>Ortodontia com acompanhamento</div>
     </div>
   </div>
@@ -487,6 +566,7 @@ footer ul a:hover{color:var(--gold)}
       <p>Serviços oferecidos aqui na Ortega Odontologia. Toque em um deles para já iniciar seu agendamento.</p>
     </div>
     <div class="grid-s" id="serviceGrid"></div>
+    <p class="swipe" aria-hidden="true">Deslize para ver todos →</p>
   </div>
 </section>
 
@@ -546,8 +626,8 @@ footer ul a:hover{color:var(--gold)}
         <div class="step" data-step="4">
           <h4>Seus dados</h4>
           <p class="hint">Usamos apenas para o consultório falar com você.</p>
-          <div class="field" id="fName"><label for="inName">Nome completo</label><input id="inName" autocomplete="name" placeholder="Como devemos te chamar?"><span class="msg">Informe seu nome.</span></div>
-          <div class="field" id="fPhone"><label for="inPhone">Telefone / WhatsApp</label><input id="inPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(91) 90000-0000"><span class="msg">Informe um telefone válido com DDD.</span></div>
+          <div class="field" id="fName"><label for="inName">Nome completo</label><input id="inName" autocomplete="name" autocapitalize="words" enterkeyhint="next" placeholder="Como devemos te chamar?"><span class="msg">Informe seu nome.</span></div>
+          <div class="field" id="fPhone"><label for="inPhone">Telefone / WhatsApp</label><input id="inPhone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="done" placeholder="(91) 90000-0000"><span class="msg">Informe um telefone válido com DDD.</span></div>
           <div class="field"><label for="inObs">Observações (opcional)</label><input id="inObs" placeholder="Ex.: dor, urgência, criança, convênio..."></div>
         </div>
         <div class="step" data-step="5">
@@ -606,6 +686,7 @@ footer ul a:hover{color:var(--gold)}
         <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=Av.+Professor+Jos%C3%A9+Gomes+Teles+455A+Independente+Benevides+PA" target="_blank" rel="noopener" style="align-self:flex-start"><svg><use href="#i-pin"/></svg>Abrir no Google Maps</a>
       </div>
       <div class="map reveal" style="--d:.15s">
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Av.+Professor+Jos%C3%A9+Gomes+Teles+455A+Independente+Benevides+PA" target="_blank" rel="noopener" aria-label="Abrir o mapa no Google Maps"><span>Toque para abrir no Maps</span></a>
         <iframe title="Mapa — Ortega Odontologia" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-48.2610%2C-1.3610%2C-48.2470%2C-1.3495&amp;layer=mapnik&amp;marker=-1.3552316%2C-48.2540081"></iframe>
       </div>
     </div>
@@ -692,17 +773,25 @@ const pad = n => String(n).padStart(2,'0');
 
 /* ---------- header / progress / menu ---------- */
 const header = $('#top'), prog = $('#progress');
+const mobileMQ = matchMedia('(max-width:620px)');
+const parallaxOK = matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches;
+let ticking = false;
 function onScroll(){
+  ticking = false;
   const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
   header.classList.toggle('scrolled', y > 40);
   prog.style.width = (h > 0 ? y / h * 100 : 0) + '%';
   const img = $('#heroImg');
-  if (img && y < innerHeight && !matchMedia('(prefers-reduced-motion:reduce)').matches) img.style.transform = `translateY(${-y * .06}px)`;
+  if (parallaxOK && img && y < innerHeight) img.style.transform = `translateY(${-y * .06}px)`;
 }
-addEventListener('scroll', onScroll, {passive:true}); onScroll();
+addEventListener('scroll', () => { if (!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive:true}); onScroll();
 const burger = $('#burger'), menu = $('#menu');
-burger.addEventListener('click', () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o); });
-$$('#menu a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
+function setMenu(o){ menu.classList.toggle('open', o); burger.setAttribute('aria-expanded', o); document.body.classList.toggle('nav-open', o); }
+burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+$$('#menu a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('click', e => { if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) setMenu(false); });
+addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+addEventListener('resize', () => { if (innerWidth > 900) setMenu(false); });
 
 /* ---------- reveal ---------- */
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
@@ -773,7 +862,7 @@ const chips = $('#treatChips');
 [FIRST, ...SERVICES.map(s => s.t)].forEach(t => {
   const c = document.createElement('button');
   c.type = 'button'; c.className = 'chip'; c.textContent = t; c.setAttribute('aria-pressed', 'false'); c.dataset.t = t;
-  c.addEventListener('click', () => { setTreat(t); });
+  c.addEventListener('click', () => { setTreat(t); autoNext(1); });
   chips.appendChild(c);
 });
 function setTreat(t){
@@ -802,7 +891,7 @@ function renderCal(){
     if (sameDay(date, today)) b.classList.add('today');
     if (sameDay(date, state.date)) b.classList.add('sel');
     b.setAttribute('aria-label', `${d} de ${MESES[v.getMonth()]}${ok ? '' : ' (indisponível)'}`);
-    b.addEventListener('click', () => { state.date = date; state.time = null; renderCal(); refresh(); });
+    b.addEventListener('click', () => { state.date = date; state.time = null; renderCal(); refresh(); autoNext(2); });
     cal.appendChild(b);
   }
 }
@@ -823,7 +912,7 @@ function renderSlots(){
     list.forEach(t => {
       const c = document.createElement('button');
       c.type = 'button'; c.className = 'chip'; c.textContent = t; c.setAttribute('aria-pressed', t === state.time);
-      c.addEventListener('click', () => { state.time = t; $$('.chip', box).forEach(x => x.setAttribute('aria-pressed', x.textContent === t)); refresh(); });
+      c.addEventListener('click', () => { state.time = t; $$('.chip', box).forEach(x => x.setAttribute('aria-pressed', x.textContent === t)); refresh(); autoNext(3); });
       row.appendChild(c);
     });
     box.appendChild(row);
@@ -887,7 +976,9 @@ $('#dlIcs').addEventListener('click', () => {
 });
 
 const back = $('#wBack'), next = $('#wNext');
-function go(n){
+// no celular, avança sozinho após escolher tratamento, dia ou horário (menos toques)
+function autoNext(from){ if (mobileMQ.matches) setTimeout(() => { if (state.step === from && validStep(from)) go(from + 1, true); }, 260); }
+function go(n, user){
   state.step = Math.max(1, Math.min(TOTAL, n));
   $$('.step').forEach(s => s.classList.toggle('on', +s.dataset.step === state.step));
   $$('#wDots i').forEach((d, i) => d.classList.toggle('done', i < state.step));
@@ -896,6 +987,7 @@ function go(n){
   if (state.step === 3) renderSlots();
   if (state.step === 5) renderSummary();
   refresh();
+  if (user){ const w = $('#wizard'), top = w.getBoundingClientRect().top; if (top < 60 || (mobileMQ.matches && top > 140)) w.scrollIntoView({behavior:'smooth', block:'start'}); }
 }
 function refresh(){
   back.style.visibility = state.step > 1 ? 'visible' : 'hidden';
@@ -910,14 +1002,14 @@ next.addEventListener('click', () => {
     $('#fName').classList.toggle('err', !nOk); $('#fPhone').classList.toggle('err', !pOk);
     if (!nOk || !pOk) return;
   }
-  if (validStep(state.step)) go(state.step + 1);
+  if (validStep(state.step)) go(state.step + 1, true);
 });
-back.addEventListener('click', () => go(state.step - 1));
+back.addEventListener('click', () => go(state.step - 1, true));
+['#inName', '#inPhone', '#inObs'].forEach(s => $(s).addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); next.click(); } }));
 
 function openBooking(treat){
-  if (treat){ setTreat(treat); }
-  if (state.step > 1 && treat) go(1);
-  $('#agendar').scrollIntoView({behavior:'smooth'});
+  if (treat){ setTreat(treat); go(2); }
+  (mobileMQ.matches ? $('#wizard') : $('#agendar')).scrollIntoView({behavior:'smooth', block:'start'});
 }
 go(1);
 
